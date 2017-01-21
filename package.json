@@ -1,0 +1,67 @@
+{
+  "name": "muon-boilerplate",
+  "version": "1.0.0",
+  "description": "A minimal Muon application equipped with processing and testing tools.",
+  "author": "Luz M. Costa <luzmcosta@gmail.com> (http://luzmcosta.com)",
+  "license": "ISC",
+  "main": "main.js",
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "node setup.js",
+    "prebuild": "mkdir -p logs",
+    "build": "npm run build:scripts && npm run build:styles",
+    "build:dev": "babel dev -d build/dev",
+    "build:scripts": "babel src/scripts -d build/scripts",
+    "build:styles": "postcss -c .postcssrc.json",
+    "lint": "npm run lint:html; npm run lint:css; npm run lint:js",
+    "lint:js": "eslint */*.js",
+    "lint:html": "htmllint *.html",
+    "lint:css": "stylelint src/styles/*.*",
+    "secure": "nsp check",
+    "pretest": "babel test -d build/test",
+    "test": "mocha build/test/unit/",
+    "dev": "npm run secure; npm run lint; npm run build && npm run test",
+    "prewatch": "npm run build:dev",
+    "watch": "node build/dev/watch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luzmcosta/muon-boilerplate"
+  },
+  "bugs": {
+    "url": "https://github.com/luzmcosta/muon-boilerplate/issues"
+  },
+  "keywords": [
+    "Muon",
+    "Electron"
+  ],
+  "publishConfig": {
+    "tag": "next"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "cssnano": "^3.10.0",
+    "devtron": "^1.4.0",
+    "electron": "brave/electron-prebuilt",
+    "eslint": "^3.13.1",
+    "htmllint-cli": "0.0.5",
+    "mocha": "^3.2.0",
+    "nsp": "^2.6.2",
+    "pixrem": "^3.0.2",
+    "postcss-cli": "^2.6.0",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-scss": "^0.4.0",
+    "precss": "^1.4.0",
+    "stylelint": "^7.7.1"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "moment": "^2.17.1",
+    "winston": "^2.3.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "use": [
+    "pixrem",
+    "precss",
+    "stylelint",
+    "autoprefixer",
+    "cssnano",
+    "postcss-cssnext"
+  ],
+  "parser": "postcss-scss",
+  "local-plugins": true,
+  "input": "./src/styles/*.scss",
+  "output": "./build/styles/main.min.css",
+  "postcss-cssnext": {
+    "browsers": "> 5%"
+  },
+  "stylelint": {
+    "configFile": "./.stylelintrc"
+  }
+}
