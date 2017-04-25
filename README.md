@@ -1,5 +1,7 @@
 # Muon Boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/luzmcosta/muon-boilerplate.svg)](https://greenkeeper.io/)
+
 This project has been equipped with some tools for developing atop Muon.
 It aims to help developers spend less time setting up than they do making
 something useful.
